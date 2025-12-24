@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions - RMC Plant Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>RMC Inventory</h2>
+                <button class="mobile-toggle" id="menuToggle">☰</button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="transactions.html" class="active">Transactions</a></li>
+                <li><a href="suppliers.html">Suppliers</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="alerts.html">Alerts</a></li>
+            </ul>
+            <div class="user-info">
+                <p id="userDisplay"></p>
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </nav>
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Stock Transactions</h1>
+                <div class="header-actions">
+                    <select id="typeFilter" class="filter-select">
+                        <option value="">All Types</option>
+                        <option value="in">Stock In</option>
+                        <option value="out">Stock Out</option>
+                    </select>
+                    <button onclick="openAddTransactionModal()" class="btn-primary">Record Transaction</button>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table class="data-table" id="transactionsTable">
+                    <thead>
+                        <tr>
+                            <th>Reference</th>
+                            <th>Date</th>
+                            <th>Material</th>
+                            <th>Type</th>
+                            <th>Quantity</th>
+                            <th>Supplier</th>
+                            <th>Recorded By</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionsBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Transaction Modal -->
+    <div id="transactionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Record Transaction</h2>
+                <button class="close-btn" onclick="closeTransactionModal()">&times;</button>
+            </div>
+            <form id="transactionForm">
+                <div class="form-group">
+                    <label for="transactionType">Transaction Type</label>
+                    <select id="transactionType" required>
+                        <option value="in">Stock In</option>
+                        <option value="out">Stock Out</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="materialId">Material</label>
+                    <select id="materialId" required>
+                        <!-- Populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="transactionQuantity">Quantity</label>
+                    <input type="number" id="transactionQuantity" required step="0.01">
+                </div>
+                <div class="form-group" id="supplierGroup">
+                    <label for="transactionSupplier">Supplier</label>
+                    <input type="text" id="transactionSupplier">
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes (Optional)</label>
+                    <textarea id="notes" rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" onclick="closeTransactionModal()" class="btn-secondary">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Transaction</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+    <script src="transactions.js"></script>
+</body>
+</html>

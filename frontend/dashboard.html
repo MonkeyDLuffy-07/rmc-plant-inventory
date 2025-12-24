@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - RMC Plant Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>RMC Inventory</h2>
+                <button class="mobile-toggle" id="menuToggle">☰</button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="transactions.html">Transactions</a></li>
+                <li><a href="suppliers.html">Suppliers</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="alerts.html">Alerts</a></li>
+            </ul>
+            <div class="user-info">
+                <p id="userDisplay"></p>
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </nav>
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Dashboard Overview</h1>
+                <p>Welcome to your RMC Plant Inventory Management System</p>
+            </div>
+            
+            <div class="stats-grid" id="statsGrid">
+                <!-- Stats cards will be populated by JavaScript -->
+            </div>
+
+            <div class="dashboard-sections">
+                <div class="section">
+                    <h2>Low Stock Materials</h2>
+                    <div id="lowStockList" class="material-list">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Recent Transactions</h2>
+                    <div id="recentTransactions" class="transaction-list">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

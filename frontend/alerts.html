@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts - RMC Plant Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>RMC Inventory</h2>
+                <button class="mobile-toggle" id="menuToggle">☰</button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="transactions.html">Transactions</a></li>
+                <li><a href="suppliers.html">Suppliers</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="alerts.html" class="active">Alerts</a></li>
+            </ul>
+            <div class="user-info">
+                <p id="userDisplay"></p>
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </nav>
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Stock Alerts</h1>
+                <p>Monitor and manage low stock notifications</p>
+            </div>
+            
+            <div class="alerts-container" id="alertsContainer">
+                <!-- Alerts will be populated by JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+    <script src="alerts.js"></script>
+</body>
+</html>

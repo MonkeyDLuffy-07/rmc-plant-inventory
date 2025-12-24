@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - RMC Plant Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>RMC Inventory</h2>
+                <button class="mobile-toggle" id="menuToggle">☰</button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="transactions.html">Transactions</a></li>
+                <li><a href="suppliers.html">Suppliers</a></li>
+                <li><a href="reports.html" class="active">Reports</a></li>
+                <li><a href="alerts.html">Alerts</a></li>
+            </ul>
+            <div class="user-info">
+                <p id="userDisplay"></p>
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </nav>
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Reports & Analytics</h1>
+                <select id="reportTypeSelect" class="filter-select">
+                    <option value="overview">Inventory Overview</option>
+                    <option value="materialwise">Material-wise Transactions</option>
+                    <option value="supplierwise">Supplier-wise Transactions</option>
+                    <option value="recent">Recent Stock Movements</option>
+                    <option value="value">Inventory Value Analysis</option>
+                    <option value="consumption">Consumption by Category</option>
+                    <option value="performance">Supplier Performance</option>
+                    <option value="lowstock">Low Stock & Reorder</option>
+                    <option value="costanalysis">Complete Cost Analysis</option>
+                    <option value="procurementcost">Procurement Cost by Supplier</option>
+                    <option value="consumptcost">Consumption Cost by Category</option>
+                </select>
+            </div>
+            
+            <div id="reportContent" class="report-content">
+                <!-- Report content will be populated by JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+    <script src="reports.js"></script>
+</body>
+</html>
